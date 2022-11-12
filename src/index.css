@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* talwind code is here */
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
