@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -15,6 +20,3 @@ code {
 /* talwind code is here */
 
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
