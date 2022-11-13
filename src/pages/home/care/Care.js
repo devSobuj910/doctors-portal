@@ -6,7 +6,7 @@ const Care = () => {
       <div className="hero">
         <div className="hero-content flex-col lg:flex-row ">
           <div className="w-1/2">
-            <img src={careimg} className="max-w-sm mx-auto rounded-lg shadow-2xl" />
+            <img  alt='' src={careimg} className="max-w-sm mx-auto rounded-lg shadow-2xl" />
           </div>
           <div className="w-1/2 p-5 m-auto  ">
             <h1 className="text-5xl font-bold ">
