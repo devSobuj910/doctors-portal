@@ -52,3 +52,8 @@ const Foooter = () => {
 };
 
 export default Foooter;
+
+
+
+
+// check responshipe
