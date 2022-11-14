@@ -4,11 +4,15 @@ import careimg from "../../.././assets/images/treatment.png"
 const Care = () => {
     return (
       <div className="hero">
-        <div className="hero-content flex-col lg:flex-row ">
+        <div className="hero-content flex-col items-start  lg:flex-row ">
           <div className="w-1/2">
-            <img  alt='' src={careimg} className="max-w-sm mx-auto rounded-lg shadow-2xl" />
+            <img
+              alt=""
+              src={careimg}
+              className="max-w-sm lg:mx-auto rounded-lg shadow-2xl"
+            />
           </div>
-          <div className="w-1/2 p-5 m-auto  ">
+          <div className="w-1/2 p-5 lg:m-auto text-left sm:text-center ">
             <h1 className="text-5xl font-bold ">
               Exceptional Dental Care, on Your Terms
             </h1>

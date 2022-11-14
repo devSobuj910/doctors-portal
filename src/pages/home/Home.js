@@ -3,7 +3,7 @@ import Banner from "./baner/Banner";
 import Cardonfos from "./cardinfo/Cardonfos";
 import Care from "./care/Care";
 import ContactForm from "./contactform/ContactForm";
-import Apoinment from "./makeapoinment/Apoinment";
+import MakeApoinment from "./makeapoinment/MakeApoinment";
 import Servics from "./services/Servics";
 import Testmonians from "./testmoniyal/Testmonians";
 
@@ -14,7 +14,7 @@ const Home = () => {
       <Cardonfos></Cardonfos>
       <Servics></Servics>
       <Care></Care>
-      <Apoinment></Apoinment>
+      <MakeApoinment></MakeApoinment>
       <Testmonians></Testmonians>
       <ContactForm></ContactForm>
     </div>

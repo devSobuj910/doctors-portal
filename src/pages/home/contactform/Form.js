@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 
 
 const Form = () => {
     return (
       <div className="hero">
-        <div className="hero-content flex-col  ">
-          <div className="card w-96 shadow-2xl bg-base-100">
+        <div className="hero-content flex-col  sm:text-center ">
+          <div className="card lg:w-96 shadow-2xl bg-base-100">
             <div className="card-body">
               <div className="form-control">
                 <label className="label">
