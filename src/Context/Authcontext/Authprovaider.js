@@ -13,20 +13,28 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const Authprovaider = ({ children }) => {
+
+
+  const [loding, setLoding] = useState(true);
+
   const [user, setUser] = useState(false);
   const creatuser = (email, password) => {
+    setLoding(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const login = (email, password) => {
+    setLoding(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logout = () => {
+    setLoding(true);
     return signOut(auth);
   };
 
   useEffect(() => {
+    setLoding(false);
     const unsubscribe = onAuthStateChanged(auth, (curentuser) => {
       setUser(curentuser);
     });
@@ -43,7 +51,8 @@ const Authprovaider = ({ children }) => {
     user,
     login,
     logout,
-    upgradeuser
+    upgradeuser,
+    loding
   };
   return (
     <AuthContext.Provider value={authinfo}>{children}</AuthContext.Provider>

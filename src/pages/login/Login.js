@@ -1,11 +1,16 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/Authcontext/Authprovaider";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
   const [firebasero, setFirebasero] = useState("");
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const form = location.state?.form?.pathname || "/";
 
   const {
     register,
@@ -20,6 +25,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(form, { replace: true });
       })
       .catch((ero) => {
         console.dir(ero.message);

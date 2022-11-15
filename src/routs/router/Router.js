@@ -4,6 +4,7 @@ import Dashbord from "../../pages/Dashbords/Dasbord/Dashbord";
 import Home from "../../pages/home/Home";
 import Login from "../../pages/login/Login";
 import Sinup from "../../pages/Sinup/Sinup";
+import Privaterouts from "../PrivateRouts/Privaterouts";
 const { createBrowserRouter } = require("react-router-dom");
 
 const router = createBrowserRouter([
@@ -35,7 +36,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashbord",
-    element: <Dashbord></Dashbord>
+    element: (
+      <Privaterouts>
+        <Dashbord></Dashbord>
+      </Privaterouts>
+    )
   }
 ]);
 
