@@ -1,11 +1,8 @@
-import React, { useState } from "react";
 import chair from "../../.././assets/images/chair.png";
 import "react-day-picker/dist/style.css";
-import { format } from "date-fns";
 import { DayPicker } from "react-day-picker";
 
-const Apoinmentbaner = () => {
-  const [selected, setSelected] = useState(new Date());
+const Apoinmentbaner = ({ selected, setSelected }) => {
   return (
     <div className="hero ">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -14,9 +11,12 @@ const Apoinmentbaner = () => {
           <DayPicker
             mode="single"
             selected={selected}
-            onSelect={setSelected}
+            onSelect={(data) => {
+              if (data) {
+                setSelected(data);
+              }
+            }}
           ></DayPicker>
-          <p> you picked {format(selected, "PP")}</p>
         </div>
       </div>
     </div>
