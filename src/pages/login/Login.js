@@ -1,7 +1,12 @@
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/Authcontext/Authprovaider";
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
+  const [firebasero, setFirebasero] = useState("");
+
   const {
     register,
     formState: { errors },
@@ -10,6 +15,16 @@ const Login = () => {
 
   const formSubmit = (form) => {
     console.log(form);
+    setFirebasero("");
+    login(form.email, form.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((ero) => {
+        console.dir(ero.message);
+        setFirebasero(ero.message);
+      });
   };
 
   return (
@@ -17,6 +32,9 @@ const Login = () => {
       <div>
         <form className="text-center" onSubmit={handleSubmit(formSubmit)}>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl mx-auto bg-base-100">
+            <h1 className="text-2xl font-bold mt-5 r capitalize text-primary ">
+              login
+            </h1>
             <div className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -60,27 +78,10 @@ const Login = () => {
                 )}
               </div>
 
-              {/* <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input
-                  type="password"
-                  className="input input-bordered"
-                  {...register("password", {
-                    required: "password must be  need"
-                  })}
-                  aria-invalid={errors.password ? "true" : "false"}
-                />
-                {errors.password ?? (
-                  <p role={alert}> {errors.password?.message}</p>
-                )} */}
-              {/* <label className="label">
-                  <Link href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </Link>
-                </label>
-              </div> */}
+              {firebasero && (
+                <span className="text-secondary">{firebasero}</span>
+              )}
+
               <div className="form-control mt-6">
                 <button type="submit" className="btn btn-accent">
                   Login
@@ -103,15 +104,3 @@ const Login = () => {
 };
 
 export default Login;
-<div className="hero min-h-screen bg-base-200">
-  <div className="hero-content flex-col lg:flex-row-reverse">
-    <div className="text-center lg:text-left">
-      <h1 className="text-5xl font-bold">Login now!</h1>
-      <p className="py-6">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-        excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a
-        id nisi.
-      </p>
-    </div>
-  </div>
-</div>;

@@ -1,5 +1,6 @@
 import Main from "../../layot/Main";
 import Apoinment from "../../pages/Apoinments/Apoinment/Apoinment";
+import Dashbord from "../../pages/Dashbords/Dasbord/Dashbord";
 import Home from "../../pages/home/Home";
 import Login from "../../pages/login/Login";
 import Sinup from "../../pages/Sinup/Sinup";
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         element: <Sinup></Sinup>
       }
     ]
+  },
+  {
+    path: "/dashbord",
+    element: <Dashbord></Dashbord>
   }
 ]);
 

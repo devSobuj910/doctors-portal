@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/Authcontext/Authprovaider";
 
 const Nav = () => {
+  const { user, logout } = useContext(AuthContext);
+
+  const logouts = () => {
+    logout()
+      .then(() => {})
+      .catch((ero) => console.log(ero));
+  };
+
   const navitems = (
     <React.Fragment>
       <li>
@@ -20,9 +29,21 @@ const Nav = () => {
         <Link to="/contact Us">Contact Us</Link>
       </li>
 
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
+      {user?.uid ? (
+        <>
+          <li>
+            <Link to="/dashbord">dashbord</Link>
+          </li>
+
+          <li onClick={logouts}>
+            <button>sinout</button>
+          </li>
+        </>
+      ) : (
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+      )}
     </React.Fragment>
   );
   return (
